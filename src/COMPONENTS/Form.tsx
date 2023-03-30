@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm , FieldValues} from 'react-hook-form';
 import {z} from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
@@ -8,13 +8,14 @@ const Form = () => {
 
   const schema = z.object({
     name: z.string().min(3, {message: 'name must be at least 3 chars'}),
-    age: z.number({invalid_type_error: 'Age filed is required'}).min(18, {message: 'age must at least 18.'})
+    age: z.number({invalid_type_error: 'Age filed is required'}).min(18),
   })
 
   //create or adjust the input types coming from the Form
   type FormData = z.infer<typeof schema>;
 
-  const { register, handleSubmit, formState: {errors, isValid} } = useForm<FormData>({resolver: zodResolver(schema)});
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  
   const onSubmit = (data: FieldValues) => console.log(data);
 
   

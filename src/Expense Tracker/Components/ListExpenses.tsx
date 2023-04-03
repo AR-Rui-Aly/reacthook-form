@@ -11,7 +11,10 @@ interface Props{
   onDelete: (id: number) => void,
 }
 
-const  ListExpenses = ({expenses, onDelete}: Props) => {
+const ListExpenses = ({ expenses, onDelete }: Props) => {
+  
+  if (expenses.length === 0) return null;
+  
   return (
     <>
       <table className="table table-bordered">
@@ -20,7 +23,7 @@ const  ListExpenses = ({expenses, onDelete}: Props) => {
             <th scope='col'>Description</th>
             <th scope='col'>Amount</th>
             <th scope='col'>Category</th>
-            <th scope='col'></th>
+            <th scope='col'>Action</th>
           </tr>
         </thead>
 

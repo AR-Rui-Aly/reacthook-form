@@ -4,6 +4,10 @@ import './App.css'
 import ListExpenses from './Expense Tracker/Components/ListExpenses'
 import Form from './components/Form'
 import ExpenseFilter from './Expense Tracker/Components/ExpenseFilter'
+import ExpenseForm from './Expense Tracker/Components/ExpenseForm'
+
+
+
 
 function App() {
  
@@ -23,6 +27,8 @@ function App() {
 
   return (
     <div className="App">
+
+      <ExpenseForm />
 
       <div className="mb-3">
         <ExpenseFilter onSelected={(category) => setSelectedCategory(category)}/>
